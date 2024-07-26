@@ -1,0 +1,8 @@
+version: "3.8"
+services: 
+  game: 
+    container_name: game
+    build: ./server
+    image: game:latest
+    ports: 
+      - "8080:8080"
