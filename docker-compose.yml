@@ -2,7 +2,7 @@ version: "2.28.1"
 services: 
   game: 
     container_name: game
-    build: ./server
+    build: ./app
     image: game:latest
     ports: 
       - "8080:8080"
