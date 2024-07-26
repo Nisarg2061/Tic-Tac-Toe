@@ -10,8 +10,8 @@ func main() {
   fileserver := http.FileServer(http.Dir("./src"))
   http.Handle("/", fileserver)
 
-  fmt.Printf("Starting server at port 8080... \n")
-  if err := http.ListenAndServe(":8080",nil); err != nil {
+  fmt.Printf("Starting server at port 8080...\n")
+  if err :=http.ListenAndServe(":8080",nil); err != nil {
     log.Fatal(err)
   }
 }
