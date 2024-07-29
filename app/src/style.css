@@ -61,5 +61,6 @@ body{
   display: none;
 }
 #footer{
+  font-family: 'Courier New';
   font-size: 1.25rem;
 }
