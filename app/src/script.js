@@ -6,6 +6,7 @@ const msg = document.querySelector("#msg");
 //-----------------------------------------------------------------------------------------//
 //0 indicates player X turn and 1 indicates player O turn.
 let turn = 0;
+let counter = 2;
 //-----------------------------------------------------------------------------------------//
 //Winning Conditions
 const winC = [
@@ -23,6 +24,7 @@ const winC = [
 const resetGame = () => {
   resetBtn.innerText = "Reset Game"
   turn = 0;
+  counter = 0;
   toggleBoxes(false);
   msgC.classList.add("hide");
 }
@@ -45,9 +47,14 @@ const checkWinner = () => {
 //-----------------------------------------------------------------------------------------//
 //Displays winner.
 const showWinner = (winner) => {
-  let wStr = "Winner is Player" + winner;
-  msg.innerText = wStr;
-  msgC.classList.remove("hide");
+  if (counter < 9) {
+    let wStr = "Winner is Player" + winner;
+    msg.innerText = wStr;
+    msgC.classList.remove("hide");
+  } else {
+    msg.innerText = "Game Over!!";
+    msgC.classList.remove("hide");
+  }
 }
 //-----------------------------------------------------------------------------------------//
 //Toggles boxes enable or disabled.
@@ -69,8 +76,9 @@ boxes.forEach((box) => {
       box.innerText = "O";
       turn -= 1;
     }
+    counter += 1;
     box.disabled = true;
-    checkWinner();
+    checkWinner(p1);
   });
 });
 //-----------------------------------------------------------------------------------------//
