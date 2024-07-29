@@ -6,7 +6,7 @@ var msg = document.querySelector("#msg");
 //-----------------------------------------------------------------------------------------//
 //0 indicates player X turn and 1 indicates player O turn.
 var turn = 0;
-var counter = 1;
+var counter = 0;
 //-----------------------------------------------------------------------------------------//
 //Winning Conditions
 var winC = [
@@ -40,7 +40,10 @@ var checkWinner = function () {
             if (p1 == p2 && p2 == p3 && p3 == p1) {
                 toggleBoxes(true);
                 resetBtn.innerText = "New Game";
-                showWinner(p1);
+                if (showWinner(p1)) {
+                    return true;
+                }
+                ;
             }
         }
     }
@@ -51,6 +54,7 @@ var showWinner = function (winner) {
     var wStr = "Winner is Player" + winner;
     msg.innerText = wStr;
     msgC.classList.remove("hide");
+    return true;
 };
 //-----------------------------------------------------------------------------------------//
 //Toggles boxes enable or disabled.
@@ -76,7 +80,7 @@ boxes.forEach(function (box) {
         }
         counter += 1;
         box.disabled = true;
-        checkWinner(p1);
+        checkCount();
     });
 });
 var gameOver = function () {
@@ -85,9 +89,14 @@ var gameOver = function () {
     msgC.classList.remove("hide");
     resetBtn.innerText = "New Game";
 };
-if (counter >= 9) {
-    gameOver();
-}
+var checkCount = function () {
+    if (checkWinner()) {
+        return true;
+    }
+    else if (counter >= 9) {
+        gameOver();
+    }
+};
 //-----------------------------------------------------------------------------------------//
 resetBtn.addEventListener("click", resetGame);
 //-----------------------------------------------------------------------------------------//
