@@ -6,7 +6,7 @@ const msg = document.querySelector("#msg");
 //-----------------------------------------------------------------------------------------//
 //0 indicates player X turn and 1 indicates player O turn.
 let turn = 0;
-let counter = 1;
+let counter = 0;
 //-----------------------------------------------------------------------------------------//
 //Winning Conditions
 const winC = [
@@ -39,7 +39,9 @@ const checkWinner = () => {
      if (p1 == p2 && p2 == p3 && p3 == p1) {
        toggleBoxes(true);
        resetBtn.innerText = "New Game";
-       showWinner(p1);
+       if(showWinner(p1)) {
+         return true;
+       };
      }
    }
  } 
@@ -50,6 +52,7 @@ const showWinner = (winner) => {
     let wStr = "Winner is Player" + winner;
     msg.innerText = wStr;
     msgC.classList.remove("hide");
+    return true;
 }
 //-----------------------------------------------------------------------------------------//
 //Toggles boxes enable or disabled.
@@ -73,7 +76,7 @@ boxes.forEach((box) => {
     }
     counter += 1;
     box.disabled = true;
-    checkWinner(p1);
+    checkCount();
   });
 });
 
@@ -83,8 +86,12 @@ const gameOver = () => {
     msgC.classList.remove("hide");
     resetBtn.innerText = "New Game";
 }
-if (counter >= 9) {
-  gameOver();
+const checkCount = () => {
+  if (checkWinner()) {
+    return true;
+  }else if (counter >= 9) {
+    gameOver();
+  }
 }
 //-----------------------------------------------------------------------------------------//
 resetBtn.addEventListener("click", resetGame);
