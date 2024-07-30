@@ -51,7 +51,7 @@ var checkWinner = function () {
 //-----------------------------------------------------------------------------------------//
 //Displays winner.
 var showWinner = function (winner) {
-    var wStr = "Winner is Player" + winner;
+    var wStr = "Winner is Player " + winner;
     msg.innerText = wStr;
     msgC.classList.remove("hide");
     return true;
