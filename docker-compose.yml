@@ -1,8 +1,7 @@
-version: '3.8'
 services: 
-  game: 
-    container_name: game
+  ttt: 
+    container_name: ttt
     build: .
-    image: game:latest
+    image: ttt:latest
     ports: 
       - "8080:8080"
