@@ -2,7 +2,7 @@ down:
 	sudo docker-compose down
 
 up:
-	sudo docker-compose up --force-recreate --no-deps
+	sudo docker-compose up -d --force-recreate --no-deps
 
 restart: down up
 
