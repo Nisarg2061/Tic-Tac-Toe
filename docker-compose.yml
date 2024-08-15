@@ -1,7 +1,7 @@
 services: 
-  ttt: 
-    container_name: ttt
+  gamet: 
+    container_name: gamet
     build: .
-    image: ttt:latest
+    image: gamet:latest
     ports: 
       - "8080:8080"
