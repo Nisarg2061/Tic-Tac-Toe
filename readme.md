@@ -19,6 +19,6 @@ cd Tic-Tac-Toe
 ```
 3. Run the project:
 ```
-make restart
+make start
 ```
 This command will build the Docker images and start the containers as defined in the `docker-compose.yml` file, and run it in background. Visit localhost:8080 to play the game.
