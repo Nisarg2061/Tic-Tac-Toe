@@ -1,8 +1,24 @@
-## Tic Tac Toe game written in Javascript with a web server written in golang.
-The app uses docker for containerization so use the following command to set it up on your device: 
+# Tic Tac Toe
+
+## Description
+A game written in Javascript with a web server written in golang.
+
+## Dependencies
+- Go
+- Docker
+- Docker Compose
+
+## Usage
+1. Clone the repository:
 ```
-step 1: git clone git@github.com:Nisarg2061/Tic-Tac-Toe.git
-step 2: cd Tic-Tac-Toe
-step 2: make restart
-step 3: visit localhost:8080 to play the game. 
+git clone git@github.com:Nisarg2061/Tic-Tac-Toe.git
 ```
+2. Navigate to the project directory:
+```
+cd Tic-Tac-Toe
+```
+3. Run the project:
+```
+make restart
+```
+This command will build the Docker images and start the containers as defined in the `docker-compose.yml` file, and run it in background. Visit localhost:8080 to play the game.
