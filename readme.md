@@ -11,7 +11,7 @@ A game written in Javascript with a web server written in golang.
 ## Usage
 1. Clone the repository:
 ```
-git clone git@github.com:Nisarg2061/Tic-Tac-Toe.git
+git clone github.com/Nisarg2061/Tic-Tac-Toe.git
 ```
 2. Navigate to the project directory:
 ```
